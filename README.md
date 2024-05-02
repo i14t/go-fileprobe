@@ -38,7 +38,7 @@ func main() {
 
 ## Reference
 
-- [dollarsignteam/go-logger][1]
+- [dollarsignteam/go-fileprobe][1]
 
 ## License
 
