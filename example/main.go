@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/i14t/go-fileprobe"
@@ -9,7 +10,9 @@ import (
 
 func main() {
 	fp := fileprobe.NewHandler()
-	fp.Create()
+	if err := fp.Create(); err != nil {
+		log.Fatal(err)
+	}
 	fmt.Printf("File probe is exists: %v\n", fp.Exists())
 
 	duration := 5 * time.Second
@@ -18,6 +21,8 @@ func main() {
 		time.Sleep(time.Second)
 	}
 
-	fp.Remove()
+	if err := fp.Remove(); err != nil {
+		log.Fatal(err)
+	}
 	fmt.Printf("File probe is exists: %v\n", fp.Exists())
 }
